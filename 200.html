@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI-Collector — робот-коллектор с 230-ФЗ compliance · отчётность ФССП</title>
+  <meta name="description" content="AI-платформа автообзвона должников для банков, МФО и ПКО. 230-ФЗ compliance из коробки. Готовая отчётность в ФССП. Окупаемость 3-6 месяцев. -60-80% на стоимости звонка.">
+  <meta name="keywords" content="робот-коллектор, AI взыскание долгов, 230-ФЗ автоматизация, голосовой робот для МФО, автообзвон должников, ФССП отчётность, AI-агент коллекшн">
+  <meta name="theme-color" content="#0A0E14">
+  <meta property="og:title" content="AI-Collector — робот-коллектор с 230-ФЗ compliance">
+  <meta property="og:description" content="230-ФЗ compliance из коробки. Готовая отчётность ФССП. Окупаемость 3-6 мес. Внедрение 5-10 дней.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+
+  <!-- ============ TICKER ============ -->
+  <div class="ticker" role="marquee" aria-label="Текущие показатели">
+    <div class="ticker-track">
+      <span class="dot">AI-COLLECTOR LIVE</span><span class="sep">·</span>
+      <span>ЗВОНКОВ СЕГОДНЯ <strong>1,247</strong></span><span class="sep">·</span>
+      <span>COMPLIANCE 230-ФЗ <strong>✓ OK</strong></span><span class="sep">·</span>
+      <span>СРЕД. ВРЕМЯ <strong>03:42</strong></span><span class="sep">·</span>
+      <span>АГЕНТОВ АКТИВНО <strong>14 / 16</strong></span><span class="sep">·</span>
+      <span>НАРУШЕНИЙ ЛИМИТОВ <strong>0</strong></span><span class="sep">·</span>
+      <span>UPTIME <strong>99.97%</strong></span><span class="sep">·</span>
+      <span>ДАННЫЕ В РФ</span><span class="sep">·</span>
+      <span>СЕРВЕР SELECTEL-MSK-01</span><span class="sep">·</span>
+      <span>ДЕМО ДОСТУПНО — ЗАКАЗАТЬ ▸</span><span class="sep">·</span>
+
+      <!-- duplicate for seamless loop -->
+      <span class="dot">AI-COLLECTOR LIVE</span><span class="sep">·</span>
+      <span>ЗВОНКОВ СЕГОДНЯ <strong>1,247</strong></span><span class="sep">·</span>
+      <span>COMPLIANCE 230-ФЗ <strong>✓ OK</strong></span><span class="sep">·</span>
+      <span>СРЕД. ВРЕМЯ <strong>03:42</strong></span><span class="sep">·</span>
+      <span>АГЕНТОВ АКТИВНО <strong>14 / 16</strong></span><span class="sep">·</span>
+      <span>НАРУШЕНИЙ ЛИМИТОВ <strong>0</strong></span><span class="sep">·</span>
+      <span>UPTIME <strong>99.97%</strong></span><span class="sep">·</span>
+      <span>ДАННЫЕ В РФ</span><span class="sep">·</span>
+      <span>СЕРВЕР SELECTEL-MSK-01</span><span class="sep">·</span>
+      <span>ДЕМО ДОСТУПНО — ЗАКАЗАТЬ ▸</span><span class="sep">·</span>
+    </div>
+  </div>
+
+  <!-- ============ HEADER ============ -->
+  <header class="head">
+    <div class="head-inner">
+      <a href="#" class="logo"><span class="logo-box">AI</span>COLLECTOR</a>
+      <nav class="head-nav">
+        <a href="#problem">[01] Проблема</a>
+        <a href="#solution">[02] Решение</a>
+        <a href="#compliance" class="active">[03] 230-ФЗ</a>
+        <a href="#security">[04] Безопасность</a>
+        <a href="#team">[05] Команда</a>
+      </nav>
+      <div class="head-time" id="head-time">
+        <span class="ok">●</span><span id="time-text">SYS / 00:00:00 MSK</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div>
+            <div class="hero-meta reveal">
+              <span class="tag">AI-COLLECTOR · V0.1.0</span>
+              <span class="tag live">LIVE</span>
+              <span>FZ-230 · COMPLIANT</span>
+            </div>
+
+            <h1 class="reveal reveal-2">
+              AI-операторы для<br>
+              <span class="accent">взыскания долгов</span><span class="cursor"></span>
+            </h1>
+
+            <p class="subhead reveal reveal-3">
+              <span class="hi">230-ФЗ-комплаенс-движок</span> с автообзвоном и&nbsp;готовой отчётностью в&nbsp;ФССП.
+              Окупаемость <span class="hi-cyan">3-6 мес</span>. Экономия <span class="hi-cyan">60-80%</span> на&nbsp;стоимости звонка. <span class="hi-cyan">+10-15%</span> к&nbsp;promise-rate.
+            </p>
+
+            <div class="hero-ctas reveal reveal-4">
+              <a href="#contact" class="btn btn-primary">Записаться на пилот</a>
+              <a href="#contact-banks" class="btn btn-ghost">Compliance-pack для&nbsp;банка</a>
+            </div>
+
+            <div class="hero-strip reveal reveal-5">
+              <div>
+                <span class="k">Звонков / сутки</span>
+                <span class="v amber">1</span>
+              </div>
+              <div>
+                <span class="k">Окно будни</span>
+                <span class="v">08:00–22:00</span>
+              </div>
+              <div>
+                <span class="k">Хранение</span>
+                <span class="v">3 года</span>
+              </div>
+              <div>
+                <span class="k">Серверы</span>
+                <span class="v green">RU · LOCAL</span>
+              </div>
+            </div>
+          </div>
+
+          <aside class="dash reveal reveal-3" aria-label="Live-дашборд">
+            <div class="dash-head">
+              <span class="t">TERMINAL · ОПЕРАТИВ</span>
+              <span class="live">LIVE</span>
+            </div>
+
+            <div class="dash-hero-num">
+              <div class="k">Обработано звонков (сегодня)</div>
+              <div class="n" id="live-calls">1,247</div>
+              <div class="delta">+218 за последний час</div>
+            </div>
+
+            <div class="dash-grid">
+              <div class="dash-cell">
+                <span class="lbl">Compliance</span>
+                <span class="v green">✓ OK</span>
+              </div>
+              <div class="dash-cell">
+                <span class="lbl">Агенты</span>
+                <span class="v amber">14 / 16</span>
+              </div>
+              <div class="dash-cell">
+                <span class="lbl">Среднее время</span>
+                <span class="v">03:42</span>
+              </div>
+              <div class="dash-cell">
+                <span class="lbl">Нарушений</span>
+                <span class="v green">0</span>
+              </div>
+              <div class="dash-cell">
+                <span class="lbl">Записи</span>
+                <span class="v cyan">3y · RF</span>
+              </div>
+              <div class="dash-cell">
+                <span class="lbl">Аптайм</span>
+                <span class="v">99.97%</span>
+              </div>
+            </div>
+
+            <div class="dash-foot">
+              <span>NODE · SELECTEL-MSK-01</span>
+              <span id="last-tick">02:14:03 MSK</span>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ URGENCY BANNER ============ -->
+    <section class="urgency" aria-label="Дедлайн 230-ФЗ">
+      <div class="wrap urgency-inner">
+        <div class="urgency-flag">
+          <span class="urgency-pulse"></span>
+          <span class="urgency-date">01.09.2026</span>
+        </div>
+        <div class="urgency-text">
+          <strong>С 1 сентября 2026</strong> — обязательная отчётность банков и МФО в ФССП по 230-ФЗ.
+          <span class="urgency-sep">·</span>
+          Внедрение AI-Collector: <strong>5–10 рабочих дней</strong>.
+          <span class="urgency-sep">·</span>
+          Окно покупки <strong>сейчас</strong> (май–август).
+        </div>
+        <a href="#contact" class="urgency-cta">Записаться ▸</a>
+      </div>
+    </section>
+
+    <!-- ============ PROBLEM ============ -->
+    <section class="sec" id="problem">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="eyebrow">§01 · Контекст</span>
+          <span class="sec-num">01 / 06</span>
+        </div>
+
+        <h2 style="margin-bottom:48px;">
+          Ручной обзвон — <span class="accent">дорого</span> и <span class="accent">рискованно</span>.
+        </h2>
+
+        <div class="problem-grid">
+          <div class="problem-big">
+            <div class="lbl">Стоимость колл-центра / месяц</div>
+            <div class="num">≈ 5 000 000<span class="unit">₽</span></div>
+            <p class="cap">
+              Команда из 25 операторов: фонд оплаты труда, аренда, обучение, текучка ~30% в год.
+              Один срыв скрипта оператором — штраф 230-ФЗ до 2 млн ₽ за случай.
+            </p>
+          </div>
+
+          <div class="problem-list">
+            <div class="problem-item">
+              <div class="n">500к — 2 млн ₽</div>
+              <div class="k">штраф за каждое нарушение 230-ФЗ (КоАП 14.57)</div>
+            </div>
+            <div class="problem-item">
+              <div class="n">≈ 30%</div>
+              <div class="k">текучка операторов в год — обучение каждого нового, контроль качества</div>
+            </div>
+            <div class="problem-item">
+              <div class="n">1.09.2026</div>
+              <div class="k">обязательная отчётность банков и МФО в ФССП — рост audit-нагрузки</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SOLUTION (terminal) ============ -->
+    <section class="sec" id="solution">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="eyebrow">§02 · Архитектура</span>
+          <span class="sec-num">02 / 06</span>
+        </div>
+
+        <h2 style="margin-bottom:48px;">
+          Три шага до <span class="accent">автоматизации</span> обзвона.
+        </h2>
+
+        <div class="terminal">
+          <div class="terminal-head">
+            <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+            <span class="name">ai-collector / deploy.sh</span>
+          </div>
+          <div class="terminal-body">
+
+            <div class="cmd-row">
+              <div class="n">01</div>
+              <div>
+                <span class="label">Интеграция</span>
+                <code class="cmd">./connect --abs=your-abs --crm=your-crm</code>
+              </div>
+              <p class="desc">
+                Подключаем платформу к вашей АБС / CRM через API. Получаем портфель должников.
+                Без миграции данных. 5–10 рабочих дней.
+              </p>
+            </div>
+
+            <div class="cmd-row">
+              <div class="n">02</div>
+              <div>
+                <span class="label">AI ведёт звонки</span>
+                <code class="cmd">./agent.run --compliance=230fz --mode=live</code>
+              </div>
+              <p class="desc">
+                AI-оператор звонит должникам в рамках 230-ФЗ. Лимиты, тайминги, скрипты — всё встроено.
+                Сложные кейсы переключаются на живого оператора в один клик.
+              </p>
+            </div>
+
+            <div class="cmd-row">
+              <div class="n">03</div>
+              <div>
+                <span class="label">Отчётность и аудит</span>
+                <code class="cmd">./report.tail --realtime --export=fssp</code>
+              </div>
+              <p class="desc">
+                Дашборд с метриками в реальном времени. Все записи звонков — 3 года.
+                Готовая доказательная база для ФССП.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ COMPLIANCE ============ -->
+    <section class="sec" id="compliance">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="eyebrow">§03 · 230-ФЗ</span>
+          <span class="sec-num">03 / 06</span>
+        </div>
+
+        <h2 style="margin-bottom:48px;">
+          Соблюдение закона — <span class="accent">часть архитектуры</span>, не add-on.
+        </h2>
+
+        <div class="compliance-grid">
+          <div class="compliance-text">
+            <h3>Нарушение лимитов технически невозможно</h3>
+            <p>
+              Каждый звонок проходит проверку на соответствие лимитам и временным окнам <span class="amber">до</span> набора номера.
+              Если правило нарушается — попытка автоматически отменяется и логируется.
+            </p>
+            <p>
+              Логи событий совместимы с реестром ФССП. Госуслуги приравнены к официальной переписке —
+              интеграция доступна. Записи звонков хранятся 3 года в зашифрованном виде в РФ.
+            </p>
+          </div>
+
+          <div class="code-block">
+            <div class="code-head">
+              <span>// fz-230.compliance.config</span>
+              <span class="ok">✓ verified · 2026-05-18</span>
+            </div>
+
+            <div class="code-line"><span class="ln">01</span><span class="l"><span class="key">calls_per_day</span> <span class="eq">=</span> <span class="val">1</span></span></div>
+            <div class="code-line"><span class="ln">02</span><span class="l"><span class="key">calls_per_week</span> <span class="eq">=</span> <span class="val">2</span></span></div>
+            <div class="code-line"><span class="ln">03</span><span class="l"><span class="key">calls_per_month</span> <span class="eq">=</span> <span class="val">8</span></span></div>
+            <div class="code-line"><span class="ln">04</span><span class="l"><span class="key">sms_per_day</span> <span class="eq">=</span> <span class="val">2</span></span></div>
+            <div class="code-line"><span class="ln">05</span><span class="l"><span class="key">sms_per_month</span> <span class="eq">=</span> <span class="val">16</span></span></div>
+            <div class="code-line"><span class="ln">06</span><span class="l"><span class="key">window_weekday</span> <span class="eq">=</span> <span class="val">08:00 → 22:00</span></span></div>
+            <div class="code-line"><span class="ln">07</span><span class="l"><span class="key">window_weekend</span> <span class="eq">=</span> <span class="val">09:00 → 20:00</span></span></div>
+            <div class="code-line"><span class="ln">08</span><span class="l"><span class="key">timezone</span> <span class="eq">=</span> <span class="val">debtor_local</span></span></div>
+            <div class="code-line"><span class="ln">09</span><span class="l"><span class="key">storage_years</span> <span class="eq">=</span> <span class="val">3</span></span></div>
+            <div class="code-line"><span class="ln">10</span><span class="l"><span class="key">fssp_export</span> <span class="eq">=</span> <span class="val">enabled</span></span></div>
+            <div class="code-line"><span class="ln">11</span><span class="l"><span class="key">gosuslugi</span> <span class="eq">=</span> <span class="val">enabled</span></span></div>
+            <div class="code-line"><span class="ln">12</span><span class="l"><span class="key">on_violation</span> <span class="eq">=</span> <span class="val">halt &amp; log</span></span></div>
+            <div class="code-line"><span class="ln">13</span><span class="l"><span class="key">// сертификаты и реестры</span></span></div>
+            <div class="code-line"><span class="ln">14</span><span class="l"><span class="key">cbr_polozhenie_779p</span> <span class="eq">=</span> <span class="val">in_progress</span></span></div>
+            <div class="code-line"><span class="ln">15</span><span class="l"><span class="key">mincifry_registry</span> <span class="eq">=</span> <span class="val">Q4_2026 (план)</span></span></div>
+            <div class="code-line"><span class="ln">16</span><span class="l"><span class="key">fstec_certificate</span> <span class="eq">=</span> <span class="val">Q4_2026 (план)</span></span></div>
+            <div class="code-line"><span class="ln">17</span><span class="l"><span class="key">gost_57580_1</span> <span class="eq">=</span> <span class="val">Q4_2026 (план)</span></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SECURITY (network diagram) ============ -->
+    <section class="sec" id="security">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="eyebrow">§04 · Безопасность</span>
+          <span class="sec-num">04 / 06</span>
+        </div>
+
+        <h2 style="margin-bottom:48px;">
+          Данные <span class="accent">не покидают РФ</span>.
+        </h2>
+
+        <div class="net" aria-label="Архитектура данных">
+          <div class="net-node net-1">
+            <div class="lbl">Node · 01</div>
+            <div class="name">SERVERS_RF</div>
+            <div class="desc">Selectel · Яндекс Облако · РФ-датацентры</div>
+          </div>
+          <div class="net-node net-2">
+            <div class="lbl">Node · 02</div>
+            <div class="name">MODELS_OSS</div>
+            <div class="desc">Open-source LLM · не OpenAI / Google</div>
+          </div>
+
+          <div class="net-center net-c">
+            <div class="lbl">CORE · AI-OPERATOR</div>
+            <div class="name">AI-COLLECTOR</div>
+          </div>
+
+          <div class="net-node net-3">
+            <div class="lbl">Node · 03</div>
+            <div class="name">AUDIT_152FZ</div>
+            <div class="desc">Логи доступа · шифрование · ПД на РФ</div>
+          </div>
+          <div class="net-node net-4">
+            <div class="lbl">Node · 04</div>
+            <div class="name">RECORDS_3Y</div>
+            <div class="desc">Записи звонков 3 года · доказ. база ФССП</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TEAM ============ -->
+    <section class="sec" id="team">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="eyebrow">§05 · Команда</span>
+          <span class="sec-num">05 / 06</span>
+        </div>
+
+        <h2 style="margin-bottom:48px;">
+          Кто это <span class="accent">делает</span>.
+        </h2>
+
+        <div class="team-grid">
+          <div class="team-card">
+            <div class="role">CO-FOUNDER · РОССИЯ · OPS &amp; LEGAL</div>
+            <div class="name">Фёдор <span class="accent">Шмельков</span></div>
+            <div class="country">operations · sales · legal · ru-jurisdiction</div>
+            <p class="bio">
+              Контролирует операции, контракты, юридическую структуру, соответствие 230-ФЗ и 152-ФЗ,
+              продажи и работу с банками-партнёрами. Опыт в e-commerce и регулируемых нишах РФ — 8+ лет.
+              <strong>Все данные и инфраструктура клиентов — в РФ под российской юрисдикцией.</strong>
+            </p>
+            <a href="https://t.me/aicollector_demo" class="link">→ Telegram</a>
+          </div>
+
+          <div class="team-card">
+            <div class="role">CO-FOUNDER · КАНАДА · TECH ONLY</div>
+            <div class="name">Christian <span class="accent">V.</span></div>
+            <div class="country">tech · ai-agents · infrastructure</div>
+            <p class="bio">
+              Только tech-сторона: AI-агенты, LLM-инфраструктура, разговорный движок.
+              Опыт в SaaS-стартапах Северной Америки.
+              <strong>Не имеет прямого доступа к данным российских клиентов — модели и данные изолированы в РФ-контуре.</strong>
+            </p>
+            <a href="#contact-banks" class="link">→ Запросить tech-pack</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CASES PLACEHOLDER ============ -->
+    <section class="sec" id="cases">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="eyebrow">§06 · Пилотные партнёры</span>
+          <span class="sec-num">06 / 07</span>
+        </div>
+
+        <h2 style="margin-bottom:32px;">
+          Ищем <span class="accent">3 пилотных партнёра</span>: МФО, ПКО, банк.
+        </h2>
+
+        <div class="cases-grid">
+          <div class="case-card">
+            <div class="case-tag">МФО</div>
+            <div class="case-title">Слот открыт</div>
+            <p class="case-desc">Внедрение 5–10 дней. Pilot-цена со скидкой. Право голоса в продуктовом roadmap.</p>
+            <a href="#contact" class="case-link">Записаться →</a>
+          </div>
+          <div class="case-card">
+            <div class="case-tag">ПКО</div>
+            <div class="case-title">Слот открыт</div>
+            <p class="case-desc">Реестр ФССП обязателен. Интеграция со скоринговой системой. Кейс публикуется по согласию.</p>
+            <a href="#contact" class="case-link">Записаться →</a>
+          </div>
+          <div class="case-card">
+            <div class="case-tag">Банк (мид-тир)</div>
+            <div class="case-title">Слот открыт</div>
+            <p class="case-desc">Compliance-pack для ИБ-отдела. Поэтапное внедрение. Готовы к POC в изолированной среде.</p>
+            <a href="#contact-banks" class="case-link">Запросить материалы →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA + FORM ============ -->
+    <section class="sec" id="contact">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="eyebrow">§07 · Демо</span>
+          <span class="sec-num">07 / 07</span>
+        </div>
+
+        <h2 style="margin-bottom:48px;">
+          Посмотрим как это работает<br>на <span class="accent">ваших данных</span>.
+        </h2>
+
+        <div class="cta-grid">
+          <div class="cta-text">
+            <p>
+              30-минутный созвон. Покажем dashboard, проиграем реальный AI-звонок,
+              обсудим интеграцию с вашей АБС. Без слайдов, без воды.
+            </p>
+            <p>
+              После заявки свяжемся в течение рабочего дня через Telegram или email — как удобнее.
+            </p>
+
+            <div class="direct">
+              <div class="row">
+                <span class="k">Telegram</span>
+                <a href="https://t.me/aicollector_demo">@aicollector_demo</a>
+              </div>
+              <div class="row">
+                <span class="k">Email</span>
+                <a href="mailto:demo@ai-collector.ru">demo@ai-collector.ru</a>
+              </div>
+              <div class="row">
+                <span class="k">Часы</span>
+                <span>пн–пт · 10:00–19:00 MSK</span>
+              </div>
+            </div>
+          </div>
+
+          <form class="prompt" id="contact-form" novalidate>
+            <div class="prompt-head">
+              <span>demo.request --interactive</span>
+              <span>READY ▸</span>
+            </div>
+            <div class="prompt-body">
+
+              <div class="prompt-field">
+                <label for="f-name">Имя</label>
+                <input id="f-name" name="name" type="text" required autocomplete="name" placeholder="Иван Иванов">
+              </div>
+              <div class="prompt-field">
+                <label for="f-company">Компания</label>
+                <input id="f-company" name="company" type="text" required autocomplete="organization" placeholder="ООО «Банк»">
+              </div>
+              <div class="prompt-field">
+                <label for="f-contact">Контакт (телефон или email)</label>
+                <input id="f-contact" name="contact" type="text" required placeholder="+7 ... или name@bank.ru">
+              </div>
+              <div class="prompt-field">
+                <label for="f-telegram">Telegram (опц.)</label>
+                <input id="f-telegram" name="telegram" type="text" placeholder="@username">
+              </div>
+              <div class="prompt-field">
+                <label for="f-note">Что хотите узнать</label>
+                <textarea id="f-note" name="note" rows="2" placeholder="Объём портфеля, текущая АБС, ожидания..."></textarea>
+              </div>
+
+              <button type="submit" class="prompt-submit">Submit · отправить заявку</button>
+
+              <div class="prompt-note">Отправляя, вы соглашаетесь с обработкой данных по 152-ФЗ</div>
+
+              <div class="form-msg success" role="status">✓ Заявка принята. Свяжемся в течение рабочего дня.</div>
+              <div class="form-msg error" role="alert">✗ Не удалось отправить. Напишите в Telegram: @aicollector_demo</div>
+            </div>
+          </form>
+        </div>
+
+        <div class="banks-cta" id="contact-banks">
+          <div class="banks-cta-text">
+            <div class="banks-tag">ДЛЯ БАНКОВ · COMPLIANCE-PACK</div>
+            <h3>Для&nbsp;банка нужен <span class="accent">отдельный материал</span>.</h3>
+            <p>
+              ИБ-отдел крупного банка не&nbsp;примет демо-форму. Нужна архитектура,
+              схема изоляции данных, чек-лист для&nbsp;ФСТЭК-аудита, статус сертификатов,
+              SLA и&nbsp;матрица rolling-deployment.
+            </p>
+            <p class="banks-status">
+              <strong>Cтатус сертификатов:</strong> 152-ФЗ ✓ · 779-П 🟡 · Минцифры 🟡 Q4 2026 · ФСТЭК 🟡 Q4 2026 · ГОСТ 57580.1 🟡 Q4 2026
+            </p>
+          </div>
+          <div class="banks-cta-actions">
+            <a href="mailto:banks@ai-collector.ru?subject=Compliance-pack%20request" class="btn btn-primary">Запросить compliance-pack</a>
+            <a href="https://t.me/aicollector_demo" class="btn btn-ghost">Telegram tech-foundera</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="foot">
+    <div class="wrap foot-grid">
+
+      <div class="foot-brand">
+        <div class="foot-logo">AI-COLLECTOR</div>
+        <p class="foot-tag">230-ФЗ-комплаенс-движок с автообзвоном · Данные и инфраструктура в&nbsp;РФ</p>
+        <div class="foot-copy">© 2026 · v0.1 · все права защищены</div>
+      </div>
+
+      <div class="foot-col">
+        <div class="foot-col-title">Контакты</div>
+        <a href="https://t.me/aicollector_demo">Telegram · @aicollector_demo</a>
+        <a href="mailto:demo@ai-collector.ru">demo@ai-collector.ru</a>
+        <a href="mailto:banks@ai-collector.ru">banks@ai-collector.ru</a>
+      </div>
+
+      <div class="foot-col">
+        <div class="foot-col-title">Регуляторика</div>
+        <a href="https://www.consultant.ru/document/cons_doc_LAW_88274/" target="_blank" rel="noopener">230-ФЗ (актуальная редакция)</a>
+        <a href="/152-fz.html">Политика 152-ФЗ</a>
+        <a href="/guide-230-fz.pdf">Гайд 230-ФЗ (PDF)</a>
+      </div>
+
+      <div class="foot-col">
+        <div class="foot-col-title">Ассоциации &amp; рынок</div>
+        <a href="https://napca.ru/" target="_blank" rel="noopener">НАПКА</a>
+        <a href="https://npmir.ru/" target="_blank" rel="noopener">СРО МиР (МФО)</a>
+        <a href="https://rvzrus.ru/" target="_blank" rel="noopener">Рынок Взыскания</a>
+      </div>
+
+    </div>
+
+    <div class="foot-fkeys">
+      <div class="wrap fkeys">
+        <a class="fkey" href="#contact"><span class="k">F1</span>ПИЛОТ</a>
+        <a class="fkey" href="#contact-banks"><span class="k">F2</span>БАНКАМ</a>
+        <a class="fkey" href="https://t.me/aicollector_demo"><span class="k">F3</span>TELEGRAM</a>
+        <a class="fkey" href="mailto:demo@ai-collector.ru"><span class="k">F4</span>EMAIL</a>
+        <a class="fkey" href="/guide-230-fz.pdf"><span class="k">F5</span>ГАЙД 230-ФЗ</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

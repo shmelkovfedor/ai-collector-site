@@ -3,7 +3,7 @@
    Aesthetic: authentic Bloomberg/financial-terminal, all-monospace.
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap');
+/* JetBrains Mono loaded via <link> in index.html (parallel, non-blocking) */
 
 :root {
   /* SURFACE */
@@ -14,11 +14,11 @@
   --line:         #1E2A3D;
   --line-2:       #2D3E5A;
 
-  /* INK */
+  /* INK — WCAG AA contrast on --bg-1 #0A0E14 */
   --ink:          #E8EDF5;
-  --ink-2:        #94A3B8;
-  --ink-3:        #64748B;
-  --ink-4:        #3F4E66;
+  --ink-2:        #B0BCD0;
+  --ink-3:        #8FA1B8;
+  --ink-4:        #7A8AA0;
 
   /* SIGNAL */
   --amber:        #FFB901;     /* primary — true Bloomberg amber */

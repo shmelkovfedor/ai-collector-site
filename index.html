@@ -324,6 +324,74 @@
       .logos-band-inner { flex-direction: column; gap: var(--space-4); }
       .logos-list { flex-wrap: wrap; justify-content: center; gap: var(--space-5); }
     }
+
+    /* ============================================
+       Section base + Problem
+       ============================================ */
+
+    .section {
+      padding: var(--space-24) 0;
+      background: var(--bg);
+    }
+
+    .section-header {
+      text-align: left;
+      margin-bottom: var(--space-12);
+      max-width: 720px;
+    }
+
+    .section-title {
+      font-size: var(--text-3xl);
+      font-weight: 700;
+      letter-spacing: var(--ls-tight);
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: var(--space-4);
+    }
+
+    .section-subtitle {
+      font-size: var(--text-md);
+      color: var(--ink-muted);
+      line-height: 1.55;
+    }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-6);
+    }
+
+    .problem-card {
+      padding: var(--space-8);
+      border: 1px solid var(--hairline);
+      border-radius: var(--radius-lg);
+      background: var(--bg-surface);
+    }
+
+    .problem-card-num {
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      letter-spacing: var(--ls-wide);
+      color: var(--accent);
+      margin-bottom: var(--space-4);
+    }
+
+    .problem-card-title {
+      font-size: var(--text-lg);
+      font-weight: 600;
+      margin-bottom: var(--space-3);
+      color: var(--ink);
+    }
+
+    .problem-card-body {
+      font-size: var(--text-sm);
+      color: var(--ink-muted);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 1024px) {
+      .problem-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -391,6 +459,33 @@
       </div>
     </div>
   </div>
+
+  <section class="section" id="product">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Проблема</span>
+        <h2 class="section-title">Сегодня call-центр коллекторов — это узкое горлышко</h2>
+        <p class="section-subtitle">Операторы дороги, скрипты нарушают 230-ФЗ от усталости, портфели должников растут быстрее чем можно нанять.</p>
+      </div>
+      <div class="problem-grid">
+        <div class="problem-card">
+          <div class="problem-card-num">01</div>
+          <div class="problem-card-title">Дорогой человеческий труд</div>
+          <div class="problem-card-body">18-20₽ за минуту разговора оператора. На портфеле 50к должников с ежедневными циклами — миллионы в месяц только на людей.</div>
+        </div>
+        <div class="problem-card">
+          <div class="problem-card-num">02</div>
+          <div class="problem-card-title">Нарушения compliance из усталости</div>
+          <div class="problem-card-body">230-ФЗ требует точного учёта: 1 разговор/день, 2/неделя, 8/месяц на должника. Один сбой — штраф до 2 млн ₽ и риск исключения из реестра ФССП.</div>
+        </div>
+        <div class="problem-card">
+          <div class="problem-card-num">03</div>
+          <div class="problem-card-title">Невозможно масштабировать</div>
+          <div class="problem-card-body">Портфель удвоился — нанимаем 2× операторов? Обучить, аттестовать, держать в рабочем тонусе. Месяцы цикла найма vs дни роста портфеля.</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <script>
     /* JS будет добавлен в Task 14 */

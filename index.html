@@ -506,6 +506,91 @@
     @media (max-width: 1024px) {
       .compliance-grid { grid-template-columns: 1fr; gap: var(--space-12); }
     }
+
+    /* ============================================
+       Pricing (3 tiers)
+       ============================================ */
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-6);
+    }
+
+    .pricing-card {
+      padding: var(--space-8);
+      border: 1px solid var(--hairline);
+      border-radius: var(--radius-lg);
+      background: var(--bg-surface);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pricing-card.featured {
+      border-color: var(--accent);
+      background: linear-gradient(180deg, rgba(255,107,71,0.06), transparent 60%);
+    }
+
+    .pricing-tier {
+      font-size: var(--text-sm);
+      color: var(--ink-muted);
+      letter-spacing: var(--ls-wide);
+      text-transform: uppercase;
+      margin-bottom: var(--space-3);
+    }
+
+    .pricing-price {
+      display: flex;
+      align-items: baseline;
+      gap: var(--space-2);
+      margin-bottom: var(--space-2);
+    }
+
+    .pricing-price-amount {
+      font-family: var(--font-mono);
+      font-size: var(--text-3xl);
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .pricing-price-unit {
+      font-size: var(--text-sm);
+      color: var(--ink-muted);
+    }
+
+    .pricing-tagline {
+      font-size: var(--text-sm);
+      color: var(--ink-muted);
+      margin-bottom: var(--space-6);
+    }
+
+    .pricing-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      margin-bottom: var(--space-8);
+      flex-grow: 1;
+    }
+
+    .pricing-features li {
+      font-size: var(--text-sm);
+      color: var(--ink);
+      padding-left: var(--space-5);
+      position: relative;
+    }
+
+    .pricing-features li::before {
+      content: "\2192";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    @media (max-width: 1024px) {
+      .pricing-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -679,6 +764,69 @@
               <span>Хранение на российских серверах. Мы — обработчик ПД, банк/ПКО остаётся оператором. Договор поручения готов.</span>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section" id="pricing">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Цены</span>
+        <h2 class="section-title">Открытое ценообразование. Без «по запросу».</h2>
+        <p class="section-subtitle">Все конкуренты прячут цену за demo-call. Мы показываем явно. Платите за реальные минуты разговора, не за тишину.</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <div class="pricing-tier">Пилот</div>
+          <div class="pricing-price">
+            <span class="pricing-price-amount">150K</span>
+            <span class="pricing-price-unit">&#8381; / 2 недели</span>
+          </div>
+          <p class="pricing-tagline">Фиксированная цена пилота. Без подписки.</p>
+          <ul class="pricing-features">
+            <li>До 5 000 должников в портфеле</li>
+            <li>2 недели полного цикла</li>
+            <li>Compliance-pack 230-ФЗ из коробки</li>
+            <li>Запись + отчёт по каждому звонку</li>
+            <li>Без обязательств после пилота</li>
+          </ul>
+          <a href="#pilot" class="cta-ghost">Запустить пилот &rarr;</a>
+        </div>
+        <div class="pricing-card featured">
+          <div class="pricing-tier">Рост</div>
+          <div class="pricing-price">
+            <span class="pricing-price-amount">6.5</span>
+            <span class="pricing-price-unit">&#8381; / минута разговора</span>
+          </div>
+          <p class="pricing-tagline">Per-minute usage. Платите за состоявшийся разговор.</p>
+          <ul class="pricing-features">
+            <li>Безлимит должников</li>
+            <li>Недозвоны бесплатно</li>
+            <li>Интеграция БКИ (НБКИ + ОКБ)</li>
+            <li>СБП-ссылка для оплаты во время звонка</li>
+            <li>Dashboard в реальном времени</li>
+            <li>SLA 99.5% uptime</li>
+          </ul>
+          <a href="#pilot" class="cta-primary">Перейти на Рост &rarr;</a>
+        </div>
+        <div class="pricing-card">
+          <div class="pricing-tier">Enterprise</div>
+          <div class="pricing-price">
+            <span class="pricing-price-amount">от 5.0</span>
+            <span class="pricing-price-unit">&#8381; / минута + custom</span>
+          </div>
+          <p class="pricing-tagline">Для портфелей &gt; 100к должников.</p>
+          <ul class="pricing-features">
+            <li>Volume-скидка от 5.0 &#8381;/мин</li>
+            <li>On-premise или dedicated cloud</li>
+            <li>Интеграция с вашей АБС</li>
+            <li>Кастомные сценарии под продукт</li>
+            <li>Dedicated success manager</li>
+            <li>SLA 99.9% + 24/7 support</li>
+          </ul>
+          <a href="#contact" class="cta-ghost">Связаться &rarr;</a>
         </div>
       </div>
     </div>

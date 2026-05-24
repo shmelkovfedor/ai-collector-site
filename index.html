@@ -392,6 +392,52 @@
     @media (max-width: 1024px) {
       .problem-grid { grid-template-columns: 1fr; }
     }
+
+    /* ============================================
+       How it Works (4-step pipeline)
+       ============================================ */
+
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-6);
+    }
+
+    .how-step {
+      padding: var(--space-6) 0;
+      border-top: 1px solid var(--hairline);
+      position: relative;
+    }
+
+    .how-step-num {
+      font-family: var(--font-mono);
+      font-size: var(--text-2xl);
+      font-weight: 600;
+      color: var(--accent);
+      font-variant-numeric: tabular-nums;
+      margin-bottom: var(--space-4);
+    }
+
+    .how-step-title {
+      font-size: var(--text-md);
+      font-weight: 600;
+      margin-bottom: var(--space-2);
+      color: var(--ink);
+    }
+
+    .how-step-body {
+      font-size: var(--text-sm);
+      color: var(--ink-muted);
+      line-height: 1.55;
+    }
+
+    @media (max-width: 1024px) {
+      .how-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 640px) {
+      .how-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -482,6 +528,39 @@
           <div class="problem-card-num">03</div>
           <div class="problem-card-title">Невозможно масштабировать</div>
           <div class="problem-card-body">Портфель удвоился — нанимаем 2× операторов? Обучить, аттестовать, держать в рабочем тонусе. Месяцы цикла найма vs дни роста портфеля.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section" id="how" style="background: var(--bg-alt);">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Как работает</span>
+        <h2 class="section-title">4 шага от загрузки портфеля до подтверждённой оплаты</h2>
+        <p class="section-subtitle">Один технологический pipeline. Compliance-движок встроен на каждом шаге — нарушение лимита физически невозможно.</p>
+      </div>
+      <div class="how-grid">
+        <div class="how-step">
+          <div class="how-step-num">01</div>
+          <div class="how-step-title">Загрузка портфеля</div>
+          <div class="how-step-body">CSV или API. Автоматическое обогащение через ФССП + ЕФРСБ + ЕГРЮЛ для скоринга и приоритизации.</div>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">02</div>
+          <div class="how-step-title">Звонок с compliance-check</div>
+          <div class="how-step-body">AI проверяет лимиты, часовой пояс должника, реестр отказавшихся. Если нарушение возможно — звонок не происходит.</div>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">03</div>
+          <div class="how-step-title">Динамический сценарий</div>
+          <div class="how-step-body">Скрипт адаптируется к реакции должника. PTP, реструктуризация, эскалация — всё в рамках 230-ФЗ.</div>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">04</div>
+          <div class="how-step-title">Оплата через СБП-ссылку</div>
+          <div class="how-step-body">Должник получает SMS со ссылкой во время разговора. 1 клик → биометрия → готово. Webhook подтверждает в 15-60 сек.</div>
         </div>
       </div>
     </div>

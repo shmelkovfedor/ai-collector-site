@@ -137,12 +137,13 @@
     }
 
     .glass-card-metric {
-      font-family: var(--font-mono);
+      font-family: var(--font-sans);
       font-size: var(--text-3xl);
       font-weight: 700;
       color: var(--accent);
       font-variant-numeric: tabular-nums;
       line-height: 1;
+      letter-spacing: var(--ls-tight);
     }
 
     .glass-card-label {
@@ -741,6 +742,10 @@
     .footer-col a {
       color: var(--ink-muted);
       font-size: var(--text-sm);
+      display: inline-block;
+      padding: 12px 0;
+      margin: -12px 0;
+      transition: color 120ms ease-out;
     }
 
     .footer-col a:hover {
@@ -802,10 +807,10 @@
   <section class="hero">
     <!-- Voice-wave SVG -->
     <svg class="voice-wave" viewBox="0 0 1200 200" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M0,100 Q150,50 300,100 T600,100 T900,100 T1200,100" stroke="#FF6B47" stroke-width="1.2" fill="none" opacity="0.15"/>
-      <path d="M0,110 Q150,60 300,110 T600,110 T900,110 T1200,110" stroke="#FF6B47" stroke-width="1" fill="none" opacity="0.10"/>
-      <path d="M0,90 Q150,40 300,90 T600,90 T900,90 T1200,90" stroke="#FF6B47" stroke-width="0.8" fill="none" opacity="0.08"/>
-      <path d="M0,120 Q150,70 300,120 T600,120 T900,120 T1200,120" stroke="#FF6B47" stroke-width="0.6" fill="none" opacity="0.06"/>
+      <path d="M0,100 Q150,50 300,100 T600,100 T900,100 T1200,100" stroke="#FF6B47" stroke-width="1.5" fill="none" opacity="0.28"/>
+      <path d="M0,110 Q150,60 300,110 T600,110 T900,110 T1200,110" stroke="#FF6B47" stroke-width="1.2" fill="none" opacity="0.20"/>
+      <path d="M0,90 Q150,40 300,90 T600,90 T900,90 T1200,90" stroke="#FF6B47" stroke-width="1" fill="none" opacity="0.16"/>
+      <path d="M0,120 Q150,70 300,120 T600,120 T900,120 T1200,120" stroke="#FF6B47" stroke-width="0.8" fill="none" opacity="0.12"/>
     </svg>
 
     <div class="container">
@@ -1032,7 +1037,7 @@
         <h2 class="section-title">Частые вопросы</h2>
       </div>
       <div class="faq-list">
-        <details class="faq-item reveal">
+        <details class="faq-item reveal" open>
           <summary>Кто отвечает за нарушения 230-ФЗ — мы или вы?</summary>
           <div class="faq-item-body">По договору SaaS вы остаётесь оператором персональных данных и стороной по 230-ФЗ. Но наша compliance-архитектура делает нарушение лимитов технически невозможным. В договоре прописана наша ответственность за технические сбои движка.</div>
         </details>
@@ -1067,8 +1072,8 @@
 
   <section class="final-cta" id="pilot">
     <svg class="voice-wave" viewBox="0 0 1200 200" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M0,100 Q150,50 300,100 T600,100 T900,100 T1200,100" stroke="#FF6B47" stroke-width="1.2" fill="none" opacity="0.12"/>
-      <path d="M0,110 Q150,60 300,110 T600,110 T900,110 T1200,110" stroke="#FF6B47" stroke-width="1" fill="none" opacity="0.08"/>
+      <path d="M0,100 Q150,50 300,100 T600,100 T900,100 T1200,100" stroke="#FF6B47" stroke-width="1.5" fill="none" opacity="0.22"/>
+      <path d="M0,110 Q150,60 300,110 T600,110 T900,110 T1200,110" stroke="#FF6B47" stroke-width="1.2" fill="none" opacity="0.16"/>
     </svg>
     <div class="container" style="position:relative;z-index:1;">
       <span class="eyebrow">Готовы начать?</span>

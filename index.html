@@ -283,6 +283,47 @@
       .hero-headline { font-size: 38px; }
       .hero-metrics { flex-direction: column; }
     }
+
+    /* ============================================
+       Logos Band
+       ============================================ */
+
+    .logos-band {
+      background: var(--bg-alt);
+      padding: var(--space-6) 0;
+      border-top: 1px solid var(--hairline);
+      border-bottom: 1px solid var(--hairline);
+    }
+
+    .logos-band-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-8);
+    }
+
+    .logos-band-label {
+      color: var(--ink-quiet);
+      font-size: var(--text-xs);
+      letter-spacing: var(--ls-extra);
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+
+    .logos-list {
+      display: flex;
+      gap: var(--space-8);
+      color: var(--ink-subtle);
+      font-size: var(--text-xs);
+      letter-spacing: var(--ls-wide);
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      .logos-band-inner { flex-direction: column; gap: var(--space-4); }
+      .logos-list { flex-wrap: wrap; justify-content: center; gap: var(--space-5); }
+    }
   </style>
 </head>
 <body>
@@ -336,6 +377,20 @@
       </div>
     </div>
   </section>
+
+  <div class="logos-band">
+    <div class="container logos-band-inner">
+      <span class="logos-band-label">Совместимо</span>
+      <div class="logos-list">
+        <span>НБКИ</span>
+        <span>ОКБ</span>
+        <span>ФССП-СМЭВ</span>
+        <span>ФЗ-230</span>
+        <span>ФЗ-152</span>
+        <span>Novofon</span>
+      </div>
+    </div>
+  </div>
 
   <script>
     /* JS будет добавлен в Task 14 */

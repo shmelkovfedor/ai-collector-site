@@ -235,11 +235,19 @@
     .voice-wave path {
       animation: wave-breath ease-in-out infinite;
       will-change: opacity;
+      transition: stroke-width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .voice-wave path:nth-child(1) { --wave-min: 0.18; --wave-max: 0.42; animation-duration: 3.2s; animation-delay: 0s;    }
     .voice-wave path:nth-child(2) { --wave-min: 0.12; --wave-max: 0.30; animation-duration: 2.8s; animation-delay: -0.5s; }
     .voice-wave path:nth-child(3) { --wave-min: 0.10; --wave-max: 0.24; animation-duration: 3.6s; animation-delay: -1.0s; }
     .voice-wave path:nth-child(4) { --wave-min: 0.08; --wave-max: 0.20; animation-duration: 4.0s; animation-delay: -1.5s; }
+
+    /* Active state: AI talks → waves get louder, brighter, faster */
+    .voice-wave.active path { stroke-width: 2.2; }
+    .voice-wave.active path:nth-child(1) { --wave-min: 0.55; --wave-max: 0.85; animation-duration: 0.8s; }
+    .voice-wave.active path:nth-child(2) { --wave-min: 0.40; --wave-max: 0.70; animation-duration: 0.7s; }
+    .voice-wave.active path:nth-child(3) { --wave-min: 0.30; --wave-max: 0.55; animation-duration: 0.9s; }
+    .voice-wave.active path:nth-child(4) { --wave-min: 0.22; --wave-max: 0.42; animation-duration: 0.6s; }
 
     @media (prefers-reduced-motion: reduce) {
       .voice-wave path { animation: none; }
@@ -1522,6 +1530,110 @@
       }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
       document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    })();
+  </script>
+
+  <script>
+    /* ============================================
+       Reactive voice-wave: idle = gentle, active = AI talking
+       Triggered by #liquid-swipe (try-agent section).
+       Auto-deactivates after 9s, like AI finished talking.
+       ============================================ */
+    (function() {
+      const swipeInput = document.getElementById('liquid-swipe');
+      const waves = document.querySelectorAll('.voice-wave');
+      if (!swipeInput || waves.length === 0) return;
+
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+      // Base config matches HTML SVG path baseY positions
+      const PATHS_CONFIG = [
+        { baseY: 100, idleAmp: 8,  activeAmp: 38, speed: 1.10 },
+        { baseY: 110, idleAmp: 6,  activeAmp: 30, speed: 0.90 },
+        { baseY: 90,  idleAmp: 5,  activeAmp: 24, speed: 1.30 },
+        { baseY: 120, idleAmp: 4,  activeAmp: 20, speed: 0.75 },
+      ];
+
+      let currentAmp = 0;   // 0..1 mix between idle and active amplitude
+      let targetAmp = 0;
+      let phase = 0;
+      let rafId = null;
+      let autoOffTimer = null;
+      const SETTLE_EPS = 0.005;
+
+      function makePath(baseY, amp, phaseOffset) {
+        const steps = 8;
+        const pts = [];
+        for (let i = 0; i <= steps; i++) {
+          const x = (i / steps) * 1200;
+          const wave = Math.sin(phaseOffset + i * 0.7) * amp;
+          const jitter = (Math.random() - 0.5) * amp * 0.35;
+          pts.push([x, baseY + wave + jitter]);
+        }
+        // Smooth via cubic Bezier through midpoints
+        let d = `M${pts[0][0].toFixed(1)},${pts[0][1].toFixed(1)}`;
+        for (let i = 0; i < pts.length - 1; i++) {
+          const p1 = pts[i];
+          const p2 = pts[i + 1];
+          const cpX = (p1[0] + p2[0]) / 2;
+          d += ` Q${cpX.toFixed(1)},${p1[1].toFixed(1)} ${p2[0].toFixed(1)},${((p1[1] + p2[1]) / 2).toFixed(1)}`;
+        }
+        return d;
+      }
+
+      function tick() {
+        const ease = targetAmp > currentAmp ? 0.08 : 0.04; // ramp-up faster than ramp-down
+        currentAmp += (targetAmp - currentAmp) * ease;
+        phase += 0.18 * (1 + currentAmp * 1.5);
+
+        waves.forEach(svg => {
+          const paths = svg.querySelectorAll('path');
+          paths.forEach((path, i) => {
+            const cfg = PATHS_CONFIG[i] || PATHS_CONFIG[0];
+            const amp = cfg.idleAmp + (cfg.activeAmp - cfg.idleAmp) * currentAmp;
+            path.setAttribute('d', makePath(cfg.baseY, amp, phase * cfg.speed + i * 0.5));
+          });
+        });
+
+        // Stop loop only when fully settled at idle
+        if (Math.abs(currentAmp - targetAmp) < SETTLE_EPS && targetAmp === 0) {
+          currentAmp = 0;
+          rafId = null;
+          return;
+        }
+        rafId = requestAnimationFrame(tick);
+      }
+
+      function start() {
+        if (rafId === null) {
+          rafId = requestAnimationFrame(tick);
+        }
+      }
+
+      function setActive(active) {
+        targetAmp = active ? 1 : 0;
+        waves.forEach(svg => svg.classList.toggle('active', active));
+        start();
+      }
+
+      swipeInput.addEventListener('change', () => {
+        clearTimeout(autoOffTimer);
+        if (reduceMotion.matches) return;
+
+        if (swipeInput.checked) {
+          setActive(true);
+          // AI finishes talking → wave returns to idle, handle slides back
+          autoOffTimer = setTimeout(() => {
+            swipeInput.checked = false;
+            swipeInput.dispatchEvent(new Event('change'));
+          }, 9000);
+        } else {
+          setActive(false);
+        }
+      });
+
+      // Kick off idle animation on load (so static SVG d gets replaced smoothly)
+      if (!reduceMotion.matches) start();
     })();
   </script>
 </body>

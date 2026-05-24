@@ -856,6 +856,235 @@
         transition: none;
       }
     }
+
+    /* ============================================
+       TRY-AGENT SECTION + Uiverse Liquid Swipe Button
+       Source: https://uiverse.io (UserNameSekhar)
+       NOTE: оригинальный light-glass — будем итерировать под наш dark navy-coral
+       ============================================ */
+
+    .try-agent {
+      padding: var(--space-16) 0 var(--space-12);
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-6);
+    }
+
+    .try-agent-label {
+      font-size: var(--text-xs);
+      letter-spacing: var(--ls-extra);
+      text-transform: uppercase;
+      color: var(--ink-subtle);
+    }
+
+    .try-agent-headline {
+      font-size: var(--text-xl);
+      font-weight: 500;
+      color: var(--ink);
+      text-align: center;
+      letter-spacing: var(--ls-tight);
+    }
+
+    .try-agent-hint {
+      font-size: var(--text-xs);
+      color: var(--ink-quiet);
+      margin-top: var(--space-2);
+    }
+
+    /* From Uiverse.io by UserNameSekhar — оригинал без правок */
+    .liquid-container {
+      --button-width: 20em;
+      --button-height: 5em;
+      --handle-size: 4em;
+      --border-radius: 2.8em;
+      --travel-distance: calc(var(--button-width) - var(--handle-size) - 0.8em);
+      --primary-color: #718096;
+      --success-color: #00c4ff;
+      --glass-bg: rgba(255, 255, 255, 0.4);
+      --text-color: #6a7fa4;
+      --handle-color: #ffffff;
+      font-family: Poppins, sans-serif;
+      max-width: var(--button-width);
+      max-height: 27.75em;
+      perspective: 1000px;
+    }
+    .liquid-input { position: absolute; opacity: 0; pointer-events: none; }
+    .liquid-button {
+      position: relative; display: block;
+      width: var(--button-width); height: var(--button-height);
+      cursor: pointer; user-select: none; outline: none;
+      transform-style: preserve-3d;
+      transition: transform 0.4s ease;
+    }
+    .liquid-button:hover { transform: rotateX(8deg) rotateY(-10deg) scale(1.02); }
+    .button-bg {
+      position: relative; width: 100%; height: 100%;
+      border-radius: var(--border-radius);
+      background: linear-gradient(175deg, #d3e6ff 0%, #ffffff 100%);
+      border: 0.05em solid rgba(255, 255, 255, 0.9);
+      box-shadow:
+        0.4em 0.4em 0.6em rgba(163, 177, 198, 0.8),
+        -0.4em -0.4em 0.6em rgba(255, 255, 255, 0.311),
+        inset 0.1em 0.1em 0.1em rgba(255, 255, 255, 0.8),
+        inset -0.1em -0.1em 0.1em rgba(163, 177, 198, 0.5);
+      overflow: hidden;
+      transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1), transform 0.4s ease;
+      animation: gentle-float 4s ease-in-out infinite;
+    }
+    @keyframes gentle-float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-0.2em); }
+    }
+    .glass-layer {
+      position: absolute; top: 0; left: 0; right: 0; height: 60%;
+      background: linear-gradient(180deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.1) 100%);
+      border-radius: var(--border-radius) var(--border-radius) 0 0;
+      pointer-events: none;
+    }
+    .reflex-shine {
+      position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.6) 50%, transparent 100%);
+      transform: skewX(-25deg);
+      transition: left 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      pointer-events: none;
+    }
+    .liquid-button:hover .reflex-shine { left: 100%; }
+    .liquid-waves { position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity 0.5s ease; }
+    .wave {
+      position: absolute; width: 200%; height: 200%; left: -50%; top: -50%;
+      border-radius: 45%; animation-play-state: paused;
+    }
+    .wave-1 { background: radial-gradient(ellipse at center, rgba(255,255,255,0.4) 0%, transparent 70%); animation: wave-rotate 8s linear infinite; filter: blur(0.3em); }
+    .wave-2 { background: radial-gradient(ellipse at center, rgba(200,200,220,0.3) 0%, transparent 70%); animation: wave-rotate 12s linear infinite reverse; filter: blur(0.4em); }
+    .wave-3 { background: radial-gradient(ellipse at center, rgba(220,220,220,0.2) 0%, transparent 70%); animation: wave-rotate 15s linear infinite; filter: blur(0.5em); }
+    @keyframes wave-rotate { 0% { transform: rotate(0deg);} 100% { transform: rotate(360deg);} }
+    .liquid-button:hover .liquid-waves { opacity: 1; }
+    .liquid-button:hover .wave { animation-play-state: running; }
+    .bubble-system { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+    .bubble {
+      position: absolute; border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.8), rgba(255,255,255,0.3));
+      opacity: 0;
+      animation: bubble-rise var(--duration, 3s) ease-in-out infinite var(--delay, 0s);
+      animation-play-state: paused;
+    }
+    .bubble-1 { width: 0.4em; height: 0.4em; left: 15%; --duration: 3s; --delay: 0s; }
+    .bubble-2 { width: 0.3em; height: 0.3em; left: 25%; --duration: 4s; --delay: 0.5s; }
+    .bubble-3 { width: 0.5em; height: 0.5em; left: 35%; --duration: 3.5s; --delay: 1s; }
+    .bubble-4 { width: 0.25em; height: 0.25em; left: 50%; --duration: 4.5s; --delay: 1.5s; }
+    .bubble-5 { width: 0.35em; height: 0.35em; left: 65%; --duration: 3.8s; --delay: 2s; }
+    .bubble-6 { width: 0.3em; height: 0.3em; left: 80%; --duration: 4.2s; --delay: 2.5s; }
+    @keyframes bubble-rise {
+      0% { bottom: -0.5em; opacity: 0; transform: translateX(0) scale(0.5); }
+      10% { opacity: 1; } 90% { opacity: 1; }
+      100% { bottom: 4em; opacity: 0; transform: translateX(0.5em) scale(1); }
+    }
+    .liquid-button:hover .bubble { animation-play-state: running; }
+    .text-content { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none; }
+    .text-initial, .text-confirmed {
+      position: absolute; font-weight: 600; font-size: 1.4em; left: 94px;
+      color: var(--text-color);
+      text-shadow: 0 0.1em 0.3em rgba(255, 255, 255, 0.8);
+      transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .text-confirmed { opacity: 0; transform: translateY(1em) scale(0.9); color: var(--success-color); }
+    .char { display: inline-block; transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); transition-delay: calc(var(--i) * 0.05s); }
+    .liquid-button:hover .text-initial .char {
+      transform: translateY(-0.2em);
+      animation: char-celebrate 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      animation-delay: calc(var(--i) * 0.08s);
+    }
+    .swipe-handle {
+      position: absolute; left: 0.4em; top: 50%; transform: translateY(-50%);
+      width: var(--handle-size); height: var(--handle-size);
+      background: var(--handle-color); border-radius: 50%;
+      box-shadow:
+        0 0.3em 1em rgba(0, 0, 0, 0.2),
+        inset 0 0.1em 0.3em rgba(255, 255, 255, 0.8),
+        inset 0 -0.1em 0.2em rgba(0, 0, 0, 0.1);
+      display: flex; align-items: center; justify-content: center; z-index: 10;
+      transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .handle-glow {
+      position: absolute; inset: 0; border-radius: 50%;
+      background: radial-gradient(circle, rgba(100, 110, 200, 0.4), transparent 70%);
+      opacity: 0; transition: opacity 0.4s ease;
+    }
+    .icon-lock, .icon-unlock {
+      position: absolute; width: 1.8em; height: 1.8em;
+      color: var(--primary-color);
+      transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .icon-lock { opacity: 1; transform: scale(1); }
+    .icon-unlock { opacity: 0; transform: scale(0.8); }
+    .liquid-button:hover .handle-glow { opacity: 1; }
+    .liquid-button:hover .swipe-handle { transform: translateY(-50%) scale(1.05); }
+    .liquid-button:active .swipe-handle { transform: translateY(-50%) scale(0.95); }
+    .particle-burst { position: absolute; right: var(--handle-size); top: 50%; transform: translateY(-50%); width: 2em; height: 2em; pointer-events: none; }
+    .particle { position: absolute; width: 0.2em; height: 0.2em; background: var(--success-color); border-radius: 50%; opacity: 0; }
+    .particle-1 { top: 0.2em; left: 0.5em; --dx: 1.5em; --dy: -0.8em; --i: 1; }
+    .particle-2 { top: 0.8em; left: 0.2em; --dx: 0.8em; --dy: 1.2em; --i: 2; }
+    .particle-3 { top: 1.2em; left: 0.9em; --dx: -0.5em; --dy: 1.5em; --i: 3; }
+    .particle-4 { top: 0.4em; left: 1.1em; --dx: 1.8em; --dy: -1.2em; --i: 4; }
+    .particle-5 { top: 1em; left: 1.4em; --dx: -1.2em; --dy: -0.6em; --i: 5; }
+    .particle-6 { top: 0.1em; left: 0.8em; --dx: 1em; --dy: -1.8em; --i: 6; }
+    .particle-7 { top: 1.4em; left: 0.6em; --dx: -0.8em; --dy: 1em; --i: 7; }
+    .particle-8 { top: 0.6em; left: 0.1em; --dx: 1.3em; --dy: 0.8em; --i: 8; }
+    .ripple-effect { position: absolute; right: 1.4em; top: 50%; transform: translateY(-50%); width: 2em; height: 2em; pointer-events: none; }
+    .ripple { position: absolute; inset: 0; border: 0.1em solid var(--success-color); border-radius: 50%; opacity: 0; transform: scale(0); }
+    .liquid-input:checked + .liquid-button .swipe-handle {
+      transform: translateY(-50%) translateX(var(--travel-distance));
+      background: linear-gradient(135deg, var(--success-color), #32cdc0);
+    }
+    .liquid-input:checked + .liquid-button .icon-lock { opacity: 0; transform: scale(0.8); }
+    .liquid-input:checked + .liquid-button .icon-unlock { opacity: 1; transform: scale(1.1); color: #fff; }
+    .liquid-input:checked + .liquid-button .text-initial { opacity: 0; transform: translateY(-1em) scale(1.1); }
+    .liquid-input:checked + .liquid-button .text-confirmed {
+      opacity: 1; transform: translateY(0) scale(1); color: #ffffff;
+      text-shadow: 0 0.1em 0.4em rgba(0, 0, 0, 0.25);
+    }
+    .liquid-input:checked + .liquid-button .text-confirmed .char {
+      animation: char-celebrate 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      animation-delay: calc(var(--i) * 0.08s);
+    }
+    @keyframes char-celebrate {
+      0% { transform: translateY(1em) rotate(-10deg) scale(0.8); opacity: 0; }
+      50% { transform: translateY(-0.3em) rotate(5deg) scale(1.1); }
+      100% { transform: translateY(0) rotate(0deg) scale(1); opacity: 1; }
+    }
+    .liquid-input:checked + .liquid-button .particle {
+      animation: particle-burst 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      animation-delay: calc(var(--i, 0) * 0.1s);
+    }
+    @keyframes particle-burst {
+      0% { opacity: 1; transform: translate(0, 0) scale(0); }
+      50% { opacity: 1; }
+      100% { opacity: 0; transform: translate(var(--dx, 1em), var(--dy, -1em)) scale(1.5); }
+    }
+    .liquid-input:checked + .liquid-button .ripple { animation: ripple-expand 1.2s ease-out forwards; }
+    .ripple-1 { animation-delay: 0.1s; }
+    .ripple-2 { animation-delay: 0.3s; }
+    .ripple-3 { animation-delay: 0.5s; }
+    @keyframes ripple-expand {
+      0% { opacity: 1; transform: scale(0); }
+      50% { opacity: 0.8; }
+      100% { opacity: 0; transform: scale(2); }
+    }
+    .liquid-input:checked + .liquid-button .button-bg {
+      background: linear-gradient(135deg, var(--success-color) 0%, #32cdc3 100%);
+      box-shadow:
+        0 0.5em 2em rgba(0, 218, 242, 0.4),
+        inset 0 0.1em 0.3em rgba(255, 255, 255, 0.5),
+        inset 0 -0.1em 0.2em rgba(0, 0, 0, 0.1);
+    }
+    .liquid-button:focus-visible { outline: 0.15em solid #718096; outline-offset: 0.2em; }
+    @media (pointer: coarse) {
+      .liquid-button:hover .reflex-shine { left: -100%; }
+      .liquid-button:hover .liquid-waves { opacity: 0.5; }
+      .liquid-button:hover { transform: none; }
+    }
   </style>
 </head>
 <body>
@@ -908,6 +1137,73 @@
         </div>
       </div>
     </div>
+  </section>
+
+  <!-- ============================================
+       TRY-AGENT — Uiverse Liquid Swipe (тест, без правок под наш стиль)
+       ============================================ -->
+  <section class="try-agent" id="try-agent">
+    <span class="try-agent-label">Попробовать сейчас</span>
+    <h2 class="try-agent-headline">Запустить разговор с AI-агентом</h2>
+
+    <div class="liquid-container">
+      <input type="checkbox" id="liquid-swipe" class="liquid-input">
+      <label for="liquid-swipe" class="liquid-button">
+        <div class="button-bg">
+          <div class="glass-layer"></div>
+          <div class="reflex-shine"></div>
+          <div class="liquid-waves">
+            <div class="wave wave-1"></div>
+            <div class="wave wave-2"></div>
+            <div class="wave wave-3"></div>
+          </div>
+          <div class="bubble-system">
+            <div class="bubble bubble-1"></div>
+            <div class="bubble bubble-2"></div>
+            <div class="bubble bubble-3"></div>
+            <div class="bubble bubble-4"></div>
+            <div class="bubble bubble-5"></div>
+            <div class="bubble bubble-6"></div>
+          </div>
+          <div class="text-content">
+            <span class="text-initial">
+              <span class="char" style="--i:0">З</span><span class="char" style="--i:1">а</span><span class="char" style="--i:2">п</span><span class="char" style="--i:3">у</span><span class="char" style="--i:4">с</span><span class="char" style="--i:5">т</span><span class="char" style="--i:6">и</span><span class="char" style="--i:7">т</span><span class="char" style="--i:8">ь</span>
+            </span>
+            <span class="text-confirmed">
+              <span class="char" style="--i:0">С</span><span class="char" style="--i:1">о</span><span class="char" style="--i:2">е</span><span class="char" style="--i:3">д</span><span class="char" style="--i:4">и</span><span class="char" style="--i:5">н</span><span class="char" style="--i:6">я</span><span class="char" style="--i:7">ю</span><span class="char" style="--i:8">.</span><span class="char" style="--i:9">.</span><span class="char" style="--i:10">.</span>
+            </span>
+          </div>
+        </div>
+        <div class="swipe-handle">
+          <div class="handle-glow"></div>
+          <svg class="icon-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+          <svg class="icon-unlock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+            <path d="M7 11V7a5 5 0 0 1 9.9-1"/>
+          </svg>
+        </div>
+        <div class="particle-burst">
+          <div class="particle particle-1"></div>
+          <div class="particle particle-2"></div>
+          <div class="particle particle-3"></div>
+          <div class="particle particle-4"></div>
+          <div class="particle particle-5"></div>
+          <div class="particle particle-6"></div>
+          <div class="particle particle-7"></div>
+          <div class="particle particle-8"></div>
+        </div>
+        <div class="ripple-effect">
+          <div class="ripple ripple-1"></div>
+          <div class="ripple ripple-2"></div>
+          <div class="ripple ripple-3"></div>
+        </div>
+      </label>
+    </div>
+
+    <p class="try-agent-hint">Жми и держи — это пока визуальный демо без реального звонка</p>
   </section>
 
   <div class="logos-band">

@@ -739,6 +739,29 @@
       .footer-inner { grid-template-columns: 1fr; gap: var(--space-6); }
       .final-cta-title { font-size: var(--text-2xl); }
     }
+
+    /* ============================================
+       Scroll-reveal motion
+       ============================================ */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 400ms ease-out, transform 400ms ease-out;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
   </style>
 </head>
 <body>
@@ -776,15 +799,15 @@
           </div>
         </div>
         <div class="hero-metrics">
-          <div class="glass-card">
+          <div class="glass-card reveal">
             <div class="glass-card-metric">95%</div>
             <div class="glass-card-label">точность распознавания</div>
           </div>
-          <div class="glass-card">
+          <div class="glass-card reveal">
             <div class="glass-card-metric">2 нед</div>
             <div class="glass-card-label">до первого реального звонка</div>
           </div>
-          <div class="glass-card">
+          <div class="glass-card reveal">
             <div class="glass-card-metric">2.5×</div>
             <div class="glass-card-label">дешевле операторов</div>
           </div>
@@ -815,17 +838,17 @@
         <p class="section-subtitle">Операторы дороги, скрипты нарушают 230-ФЗ от усталости, портфели должников растут быстрее чем можно нанять.</p>
       </div>
       <div class="problem-grid">
-        <div class="problem-card">
+        <div class="problem-card reveal">
           <div class="problem-card-num">01</div>
           <div class="problem-card-title">Дорогой человеческий труд</div>
           <div class="problem-card-body">18-20₽ за минуту разговора оператора. На портфеле 50к должников с ежедневными циклами — миллионы в месяц только на людей.</div>
         </div>
-        <div class="problem-card">
+        <div class="problem-card reveal">
           <div class="problem-card-num">02</div>
           <div class="problem-card-title">Нарушения compliance из усталости</div>
           <div class="problem-card-body">230-ФЗ требует точного учёта: 1 разговор/день, 2/неделя, 8/месяц на должника. Один сбой — штраф до 2 млн ₽ и риск исключения из реестра ФССП.</div>
         </div>
-        <div class="problem-card">
+        <div class="problem-card reveal">
           <div class="problem-card-num">03</div>
           <div class="problem-card-title">Невозможно масштабировать</div>
           <div class="problem-card-body">Портфель удвоился — нанимаем 2× операторов? Обучить, аттестовать, держать в рабочем тонусе. Месяцы цикла найма vs дни роста портфеля.</div>
@@ -843,22 +866,22 @@
         <p class="section-subtitle">Один технологический pipeline. Compliance-движок встроен на каждом шаге — нарушение лимита физически невозможно.</p>
       </div>
       <div class="how-grid">
-        <div class="how-step">
+        <div class="how-step reveal">
           <div class="how-step-num">01</div>
           <div class="how-step-title">Загрузка портфеля</div>
           <div class="how-step-body">CSV или API. Автоматическое обогащение через ФССП + ЕФРСБ + ЕГРЮЛ для скоринга и приоритизации.</div>
         </div>
-        <div class="how-step">
+        <div class="how-step reveal">
           <div class="how-step-num">02</div>
           <div class="how-step-title">Звонок с compliance-check</div>
           <div class="how-step-body">AI проверяет лимиты, часовой пояс должника, реестр отказавшихся. Если нарушение возможно — звонок не происходит.</div>
         </div>
-        <div class="how-step">
+        <div class="how-step reveal">
           <div class="how-step-num">03</div>
           <div class="how-step-title">Динамический сценарий</div>
           <div class="how-step-body">Скрипт адаптируется к реакции должника. PTP, реструктуризация, эскалация — всё в рамках 230-ФЗ.</div>
         </div>
-        <div class="how-step">
+        <div class="how-step reveal">
           <div class="how-step-num">04</div>
           <div class="how-step-title">Оплата через СБП-ссылку</div>
           <div class="how-step-body">Должник получает SMS со ссылкой во время разговора. 1 клик → биометрия → готово. Webhook подтверждает в 15-60 сек.</div>
@@ -877,35 +900,35 @@
           <p class="section-subtitle">Каждый компонент платформы проектировался с учётом российской регуляторики. Нарушение лимита — это не «риск», это технически невозможно.</p>
         </div>
         <div class="compliance-list">
-          <div class="compliance-item">
+          <div class="compliance-item reveal">
             <div class="compliance-item-mark">&#10003;</div>
             <div class="compliance-item-text">
               <strong>Счётчики разговоров и недозвонов</strong>
               <span>Раздельные счётчики per-debtor. 1 разговор / 2 / 8. Недозвоны не засчитываются как разговор.</span>
             </div>
           </div>
-          <div class="compliance-item">
+          <div class="compliance-item reveal">
             <div class="compliance-item-mark">&#10003;</div>
             <div class="compliance-item-text">
               <strong>Часовой пояс должника</strong>
               <span>Не серверное время. Часовой пояс определяется по региону регистрации, звонки только в окне 8:00-22:00 local.</span>
             </div>
           </div>
-          <div class="compliance-item">
+          <div class="compliance-item reveal">
             <div class="compliance-item-mark">&#10003;</div>
             <div class="compliance-item-text">
               <strong>Реестр отказавшихся</strong>
               <span>Автоблокировка за 3 рабочих дня после отказа. SMS и звонки в этот период физически не происходят.</span>
             </div>
           </div>
-          <div class="compliance-item">
+          <div class="compliance-item reveal">
             <div class="compliance-item-mark">&#10003;</div>
             <div class="compliance-item-text">
               <strong>Запись звонков</strong>
               <span>100% разговоров записываются с шифрованием. Передача в ФССП по запросу за 24 часа.</span>
             </div>
           </div>
-          <div class="compliance-item">
+          <div class="compliance-item reveal">
             <div class="compliance-item-mark">&#10003;</div>
             <div class="compliance-item-text">
               <strong>ФЗ-152 (персональные данные)</strong>
@@ -926,7 +949,7 @@
         <p class="section-subtitle">Все конкуренты прячут цену за demo-call. Мы показываем явно. Платите за реальные минуты разговора, не за тишину.</p>
       </div>
       <div class="pricing-grid">
-        <div class="pricing-card">
+        <div class="pricing-card reveal">
           <div class="pricing-tier">Пилот</div>
           <div class="pricing-price">
             <span class="pricing-price-amount">150K</span>
@@ -942,7 +965,7 @@
           </ul>
           <a href="#pilot" class="cta-ghost">Запустить пилот &rarr;</a>
         </div>
-        <div class="pricing-card featured">
+        <div class="pricing-card featured reveal">
           <div class="pricing-tier">Рост</div>
           <div class="pricing-price">
             <span class="pricing-price-amount">6.5</span>
@@ -959,7 +982,7 @@
           </ul>
           <a href="#pilot" class="cta-primary">Перейти на Рост &rarr;</a>
         </div>
-        <div class="pricing-card">
+        <div class="pricing-card reveal">
           <div class="pricing-tier">Enterprise</div>
           <div class="pricing-price">
             <span class="pricing-price-amount">от 5.0</span>
@@ -988,31 +1011,31 @@
         <h2 class="section-title">Частые вопросы</h2>
       </div>
       <div class="faq-list">
-        <details class="faq-item">
+        <details class="faq-item reveal">
           <summary>Кто отвечает за нарушения 230-ФЗ — мы или вы?</summary>
           <div class="faq-item-body">По договору SaaS вы остаётесь оператором персональных данных и стороной по 230-ФЗ. Но наша compliance-архитектура делает нарушение лимитов технически невозможным. В договоре прописана наша ответственность за технические сбои движка.</div>
         </details>
-        <details class="faq-item">
+        <details class="faq-item reveal">
           <summary>Сколько времени от подписания до первого реального звонка?</summary>
           <div class="faq-item-body">Стандартный пилот — 2 недели. День 1-3: вы загружаете портфель и согласовываете скрипт. День 4-7: мы настраиваем интеграцию с вашей CRM/АБС. День 8-10: тестовая партия 100 звонков. День 11-14: полноценный пилот.</div>
         </details>
-        <details class="faq-item">
+        <details class="faq-item reveal">
           <summary>Что если должник просит соединить с живым оператором?</summary>
           <div class="faq-item-body">В тарифе «Рост» — эскалация на ваших операторов (вы передаёте список номеров доступности). В «Enterprise» — опционально наш контакт-центр 24/7. AI не пытается удерживать должника против воли — это нарушение 230-ФЗ.</div>
         </details>
-        <details class="faq-item">
+        <details class="faq-item reveal">
           <summary>Как считается оплата — за каждый звонок или только за состоявшийся?</summary>
           <div class="faq-item-body">Только за состоявшийся разговор (должник ответил + был диалог &gt; 10 сек). Недозвоны, гудки, автоответчики — бесплатно. Это отличается от конкурентов, которые берут за все попытки.</div>
         </details>
-        <details class="faq-item">
+        <details class="faq-item reveal">
           <summary>Какие банки и ПКО уже работают с вами?</summary>
           <div class="faq-item-body">Сейчас мы в стадии пилотов с первыми 3 партнёрами. Большая часть кейсов закрыта NDA. Запросите demo — пришлём список референсов в защищённом формате.</div>
         </details>
-        <details class="faq-item">
+        <details class="faq-item reveal">
           <summary>Можно ли on-premise? У нас строгая ИБ-политика.</summary>
           <div class="faq-item-body">Да, в тарифе Enterprise. Docker-контейнеры разворачиваются на вашем инфра. Воздушный gap опционально. Все ML-модели open-source (Whisper + Llama), никаких внешних API.</div>
         </details>
-        <details class="faq-item">
+        <details class="faq-item reveal">
           <summary>Что с обновлениями compliance-движка при изменении 230-ФЗ?</summary>
           <div class="faq-item-body">Обновления compliance-pack входят во все тарифы бесплатно. Мы отслеживаем поправки на Госдума.gov.ru, при изменении лимитов — обновляем движок в течение 48 часов.</div>
         </details>
@@ -1066,7 +1089,26 @@
   </footer>
 
   <script>
-    /* JS будет добавлен в Task 14 */
+    // Scroll-reveal via IntersectionObserver
+    (function() {
+      if (!('IntersectionObserver' in window)) {
+        // Fallback: show everything immediately
+        document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+        return;
+      }
+
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry, i) => {
+          if (entry.isIntersecting) {
+            // Stagger 60ms between elements in same viewport
+            setTimeout(() => entry.target.classList.add('visible'), i * 60);
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    })();
   </script>
 </body>
 </html>

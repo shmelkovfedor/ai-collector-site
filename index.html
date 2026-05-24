@@ -119,6 +119,99 @@
     @media (max-width: 768px) {
       .container { padding: 0 var(--space-6); }
     }
+
+    /* ============================================
+       Components
+       ============================================ */
+
+    /* Eyebrow caps */
+    .eyebrow {
+      font-size: var(--text-xs);
+      letter-spacing: var(--ls-extra);
+      text-transform: uppercase;
+      color: var(--ink-subtle);
+      font-weight: 500;
+      display: inline-block;
+      margin-bottom: var(--space-4);
+    }
+
+    /* Glass-card (signature) */
+    .glass-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: var(--radius-lg);
+      padding: var(--space-5) var(--space-6);
+    }
+
+    .glass-card-metric {
+      font-family: var(--font-mono);
+      font-size: var(--text-3xl);
+      font-weight: 700;
+      color: var(--accent);
+      font-variant-numeric: tabular-nums;
+      line-height: 1;
+    }
+
+    .glass-card-label {
+      font-size: var(--text-xs);
+      color: var(--ink-subtle);
+      margin-top: var(--space-2);
+      letter-spacing: var(--ls-wide);
+      text-transform: uppercase;
+    }
+
+    /* CTA Primary */
+    .cta-primary {
+      background: var(--accent);
+      color: var(--bg);
+      padding: 14px 26px;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      font-size: var(--text-sm);
+      letter-spacing: 0.2px;
+      transition: background-color 120ms ease-out;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cta-primary:hover {
+      background: var(--accent-deep);
+    }
+
+    /* CTA Ghost */
+    .cta-ghost {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--ink-quiet);
+      padding: 13px 24px;
+      border-radius: var(--radius-md);
+      font-weight: 500;
+      font-size: var(--text-sm);
+      transition: border-color 120ms ease-out, background-color 120ms ease-out;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cta-ghost:hover {
+      border-color: var(--ink-subtle);
+      background: rgba(255,255,255,0.02);
+    }
+
+    /* Voice-wave SVG container */
+    .voice-wave {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 200px;
+      transform: translateY(-50%);
+      pointer-events: none;
+      z-index: 0;
+    }
   </style>
 </head>
 <body>

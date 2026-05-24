@@ -438,6 +438,74 @@
     @media (max-width: 640px) {
       .how-grid { grid-template-columns: 1fr; }
     }
+
+    /* ============================================
+       Compliance (darkest contrast)
+       ============================================ */
+
+    .compliance {
+      padding: var(--space-24) 0;
+      background: #050810;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .compliance-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: var(--space-16);
+      align-items: center;
+    }
+
+    .compliance-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+
+    .compliance-item {
+      display: flex;
+      gap: var(--space-4);
+      align-items: flex-start;
+      padding: var(--space-5);
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: var(--radius-md);
+    }
+
+    .compliance-item-mark {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      border-radius: var(--radius-full);
+      background: var(--accent);
+      color: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: var(--text-xs);
+    }
+
+    .compliance-item-text strong {
+      display: block;
+      font-size: var(--text-base);
+      font-weight: 600;
+      margin-bottom: var(--space-1);
+      color: var(--ink);
+    }
+
+    .compliance-item-text span {
+      font-size: var(--text-sm);
+      color: var(--ink-muted);
+      line-height: 1.55;
+    }
+
+    @media (max-width: 1024px) {
+      .compliance-grid { grid-template-columns: 1fr; gap: var(--space-12); }
+    }
   </style>
 </head>
 <body>
@@ -561,6 +629,56 @@
           <div class="how-step-num">04</div>
           <div class="how-step-title">Оплата через СБП-ссылку</div>
           <div class="how-step-body">Должник получает SMS со ссылкой во время разговора. 1 клик → биометрия → готово. Webhook подтверждает в 15-60 сек.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="compliance" id="compliance">
+    <div class="container">
+      <div class="compliance-grid">
+        <div>
+          <span class="eyebrow">Compliance</span>
+          <h2 class="section-title">Соответствие 230-ФЗ — не функция, а архитектура</h2>
+          <p class="section-subtitle">Каждый компонент платформы проектировался с учётом российской регуляторики. Нарушение лимита — это не «риск», это технически невозможно.</p>
+        </div>
+        <div class="compliance-list">
+          <div class="compliance-item">
+            <div class="compliance-item-mark">&#10003;</div>
+            <div class="compliance-item-text">
+              <strong>Счётчики разговоров и недозвонов</strong>
+              <span>Раздельные счётчики per-debtor. 1 разговор / 2 / 8. Недозвоны не засчитываются как разговор.</span>
+            </div>
+          </div>
+          <div class="compliance-item">
+            <div class="compliance-item-mark">&#10003;</div>
+            <div class="compliance-item-text">
+              <strong>Часовой пояс должника</strong>
+              <span>Не серверное время. Часовой пояс определяется по региону регистрации, звонки только в окне 8:00-22:00 local.</span>
+            </div>
+          </div>
+          <div class="compliance-item">
+            <div class="compliance-item-mark">&#10003;</div>
+            <div class="compliance-item-text">
+              <strong>Реестр отказавшихся</strong>
+              <span>Автоблокировка за 3 рабочих дня после отказа. SMS и звонки в этот период физически не происходят.</span>
+            </div>
+          </div>
+          <div class="compliance-item">
+            <div class="compliance-item-mark">&#10003;</div>
+            <div class="compliance-item-text">
+              <strong>Запись звонков</strong>
+              <span>100% разговоров записываются с шифрованием. Передача в ФССП по запросу за 24 часа.</span>
+            </div>
+          </div>
+          <div class="compliance-item">
+            <div class="compliance-item-mark">&#10003;</div>
+            <div class="compliance-item-text">
+              <strong>ФЗ-152 (персональные данные)</strong>
+              <span>Хранение на российских серверах. Мы — обработчик ПД, банк/ПКО остаётся оператором. Договор поручения готов.</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>

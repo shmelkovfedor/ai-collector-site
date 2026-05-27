@@ -2,6 +2,10 @@
 
 Голосовой AI-агент для коллекторских агентств. Production landing page.
 
+**🔗 Live:** https://shmelkovfedor.github.io/ai-collector-site/
+
+**🧑‍🤝‍🧑 Партнёр хочет адаптировать?** → [INSTRUCTIONS_RU.md](INSTRUCTIONS_RU.md) (как менять тексты сохраняя дизайн).
+
 ## Локально
 
 Открыть `index.html` в браузере. Нет build-pipeline.
